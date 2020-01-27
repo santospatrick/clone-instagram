@@ -1,11 +1,11 @@
 import React from 'react';
-import { Image } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
-import logo from './assets/instagram.png';
-
 import Feed from './pages/Feed';
+import HeaderImage from './components/HeaderImage/HeaderImage';
+
+const HeaderTitle = () => <HeaderImage />;
 
 const AppNavigator = createStackNavigator(
     {
@@ -13,7 +13,7 @@ const AppNavigator = createStackNavigator(
     },
     {
         defaultNavigationOptions: {
-            headerTitle: <Image source={logo} />,
+            headerTitle: HeaderTitle,
             headerTitleAlign: 'center',
             headerStyle: {
                 backgroundColor: '#f5f5f5',
