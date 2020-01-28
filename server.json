@@ -1,6 +1,14 @@
 {
   "feed": [
     {
+        "id": 0,
+        "image": "https://avatars0.githubusercontent.com/u/13510169?s=460&v=4",
+        "small": "https://avatars0.githubusercontent.com/u/13510169?s=60&v=4",
+        "aspectRatio": 1,
+        "description": "Studying React Native everyday!",
+        "authorId": 6
+    },
+    {
       "id": 1,
       "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/instagram-clone/1.jpeg",
       "small": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/instagram-clone/small/1.jpeg",
@@ -186,6 +194,11 @@
       "id": 5,
       "name": "jpedroschmitz",
       "avatar": "https://avatars0.githubusercontent.com/u/26466516?s=50&v=4"
+    },
+    {
+      "id": 6,
+      "name": "whoistrick",
+      "avatar": "https://avatars0.githubusercontent.com/u/13510169?s=50&v=4"
     }
   ]
 }
