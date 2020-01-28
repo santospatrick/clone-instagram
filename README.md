@@ -12,3 +12,4 @@
 - [ ] Camera
 - [ ] Messages
 - [ ] Bottom tabs
+- [ ] Dark Mode
