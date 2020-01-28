@@ -3,7 +3,7 @@ import React from 'react';
 import { Header, Avatar, Name, Container, Description } from './styles';
 import LazyImage from '../LazyImage';
 
-const Post = ({ item }) => {
+const Post = ({ item, shouldLoad }) => {
     return (
         <Container>
             <Header>
@@ -14,6 +14,7 @@ const Post = ({ item }) => {
                 ratio={item.aspectRatio}
                 source={{ uri: item.image }}
                 smallSource={{ uri: item.small }}
+                shouldLoad={shouldLoad}
             />
             <Description>
                 <Name>{item.author.name}</Name> {item.description}

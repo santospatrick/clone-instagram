@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { View, FlatList } from 'react-native';
 
 import Post from '../../components/Post';
@@ -10,6 +10,7 @@ function Feed() {
     const [total, setTotal] = useState(0);
     const [loading, setLoading] = useState(false);
     const [refresing, setRefresing] = useState(false);
+    const [viewable, setViewable] = useState([]);
 
     async function loadPage(pageNumber = page, shouldRefresh = false) {
         if (total && pageNumber > total) return;
@@ -41,12 +42,22 @@ function Feed() {
         setRefresing(false);
     }
 
+    const handleViewableChanged = useCallback(({ changed }) => {
+        setViewable(changed.map(({ item }) => item.id));
+    }, []);
+
     return (
         <View>
             <FlatList
                 data={feed}
                 keyExtractor={item => String(item.id)}
-                renderItem={({ item }) => <Post item={item} />}
+                renderItem={({ item }) => (
+                    <Post item={item} shouldLoad={viewable.includes(item.id)} />
+                )}
+                viewabilityConfig={{
+                    viewAreaCoveragePercentThreshold: 20,
+                }}
+                onViewableItemsChanged={handleViewableChanged}
                 onRefresh={refreshList}
                 refreshing={refresing}
                 onEndReached={() => loadPage()}
